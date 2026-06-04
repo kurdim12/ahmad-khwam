@@ -3,6 +3,7 @@ import { copy } from "@/content/copy";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { About } from "@/components/About";
 import { Academy } from "@/components/Academy";
+import { AudienceField } from "@/components/AudienceField";
 import { FeaturedWork } from "@/components/FeaturedWork";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -33,6 +34,7 @@ export default function Page({ params }: { params: { locale: string } }) {
 
       <main className="relative">
         <Hero locale={locale} />
+        <AudienceField locale={locale} />
         <About locale={locale} />
         <FeaturedWork locale={locale} />
         <Media locale={locale} />

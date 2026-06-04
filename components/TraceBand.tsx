@@ -2,6 +2,7 @@ import { copy } from "@/content/copy";
 import type { Locale } from "@/lib/i18n";
 import { MotionReveal } from "./MotionReveal";
 import { Ornament } from "./Ornament";
+import { RevealText } from "./RevealText";
 import { TraceWall } from "./TraceWall";
 
 /**
@@ -17,7 +18,7 @@ export function TraceBand({ locale }: { locale: Locale }) {
     <section
       aria-label={c.title[locale]}
       data-trace-node="trace"
-      className="relative overflow-hidden border-y border-line py-28 sm:py-36"
+      className="relative overflow-hidden border-y border-line py-20 sm:py-28"
     >
       <div aria-hidden className="texture-dots pointer-events-none absolute inset-0 opacity-30" />
       <div
@@ -34,14 +35,11 @@ export function TraceBand({ locale }: { locale: Locale }) {
           </span>
         </MotionReveal>
 
-        <MotionReveal delay={0.06}>
-          <h2
-            dir="auto"
-            className="font-display text-5xl font-semibold leading-[1.05] text-bone sm:text-7xl md:text-8xl"
-          >
-            {c.title[locale]}
-          </h2>
-        </MotionReveal>
+        <RevealText
+          as="h2"
+          text={c.title[locale]}
+          className="block font-display text-5xl font-semibold leading-[1.05] text-bone sm:text-7xl md:text-8xl"
+        />
 
         <MotionReveal delay={0.14}>
           <p

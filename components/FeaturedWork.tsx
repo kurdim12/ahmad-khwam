@@ -11,7 +11,7 @@ export function FeaturedWork({ locale }: { locale: Locale }) {
   const rest = items.filter((i) => (i.rank ?? 99) > 2);
 
   return (
-    <section id="work" data-trace-node="work" className="shell scroll-mt-24 py-24 sm:py-32">
+    <section id="work" data-trace-node="work" className="shell scroll-mt-24 py-20 sm:py-28">
       <SectionHeading
         index={2}
         label={copy.work.label[locale]}

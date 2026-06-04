@@ -15,7 +15,7 @@ export function Footer({ locale }: { locale: Locale }) {
   ];
 
   return (
-    <footer id="contact" data-trace-node="contact" className="scroll-mt-24 border-t border-line py-24 sm:py-28">
+    <footer id="contact" data-trace-node="contact" className="scroll-mt-24 border-t border-line py-20 sm:py-24">
       <div className="shell flex flex-col items-center text-center">
         <div className="mb-8 flex items-center justify-center gap-3">
           <span className="ltr-num font-display text-xs text-gold">

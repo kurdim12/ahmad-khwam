@@ -109,15 +109,43 @@ html[lang="en"] .eyebrow {
     @apply h-px w-full bg-[var(--line)];
   }
 
-  /* Card hover: gentle lift + gold border glow */
+  /* Card: a sheet of paper with soft resting depth (Cult-UI texture-card feel),
+     lifting on hover with a rubric edge. */
   .card-glow {
+    box-shadow: inset 0 1px 0 rgba(255, 252, 245, 0.6),
+      0 10px 28px -26px rgba(36, 26, 15, 0.5);
     transition: transform 0.5s var(--ease), border-color 0.5s var(--ease),
       box-shadow 0.5s var(--ease);
   }
   .card-glow:hover {
     transform: translateY(-4px);
     border-color: var(--gold-soft);
-    box-shadow: 0 1px 0 0 var(--gold-soft), 0 22px 44px -28px rgba(36, 26, 15, 0.4);
+    box-shadow: inset 0 1px 0 rgba(255, 252, 245, 0.7),
+      0 1px 0 0 var(--gold-soft), 0 24px 46px -28px rgba(36, 26, 15, 0.45);
+  }
+
+  /* Animated rubric sheen circling a CTA (Cult-UI BgAnimateButton spirit). */
+  .cta-trace {
+    position: relative;
+    isolation: isolate;
+  }
+  .cta-trace::before {
+    content: "";
+    position: absolute;
+    inset: -1.5px;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(
+      from var(--a, 0deg),
+      transparent 0 62%,
+      rgba(255, 248, 235, 0.85) 78%,
+      transparent 92%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: cta-spin 4.5s linear infinite;
+    pointer-events: none;
   }
 
   /* ── Concept: أثر / the trace ─────────────────────────────────────── */
@@ -187,6 +215,17 @@ html[lang="en"] .eyebrow {
   /* Ink-settle: a heading rises out of a soft blur, like ink finding form. */
   .ink-settle {
     animation: ink-settle 0.9s var(--ease) both;
+  }
+}
+
+@property --a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes cta-spin {
+  to {
+    --a: 360deg;
   }
 }
 

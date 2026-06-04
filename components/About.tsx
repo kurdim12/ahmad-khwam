@@ -1,6 +1,7 @@
 import { copy } from "@/content/copy";
 import type { Locale } from "@/lib/i18n";
 import { MotionReveal } from "./MotionReveal";
+import { RevealText } from "./RevealText";
 import { SectionLabel } from "./SectionLabel";
 
 export function About({ locale }: { locale: Locale }) {
@@ -11,21 +12,18 @@ export function About({ locale }: { locale: Locale }) {
   const p1Rest = restWords.join(" ");
 
   return (
-    <section id="about" data-trace-node="about" className="shell scroll-mt-24 py-24 sm:py-32">
+    <section id="about" data-trace-node="about" className="shell scroll-mt-24 py-20 sm:py-28">
       <div className="grid items-start gap-12 md:grid-cols-[1.4fr_1fr] md:gap-16">
         <div>
           <div className="mb-5">
             <SectionLabel index={1} label={c.label[locale]} locale={locale} />
           </div>
 
-          <MotionReveal>
-            <h2
-              dir="auto"
-              className="font-display text-3xl font-medium leading-tight text-bone sm:text-4xl md:text-[2.75rem]"
-            >
-              {c.title[locale]}
-            </h2>
-          </MotionReveal>
+          <RevealText
+            as="h2"
+            text={c.title[locale]}
+            className="font-display text-3xl font-medium leading-tight text-bone sm:text-4xl md:text-[2.75rem]"
+          />
 
           <MotionReveal delay={0.08}>
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-bone-muted">

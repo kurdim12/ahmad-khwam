@@ -4,6 +4,7 @@ import type { Locale } from "@/lib/i18n";
 import { getAcademyJournal } from "@/lib/manifest";
 import { ArrowIcon, WhatsappIcon } from "./icons";
 import { MotionReveal } from "./MotionReveal";
+import { RevealText } from "./RevealText";
 import { SectionLabel } from "./SectionLabel";
 
 export function Academy({ locale }: { locale: Locale }) {
@@ -14,7 +15,7 @@ export function Academy({ locale }: { locale: Locale }) {
     <section
       id="academy"
       data-trace-node="academy"
-      className="relative scroll-mt-24 overflow-hidden py-24 sm:py-32"
+      className="relative scroll-mt-24 overflow-hidden py-20 sm:py-28"
     >
       <div aria-hidden className="texture-dots pointer-events-none absolute inset-0 -z-10 opacity-30" />
 
@@ -24,14 +25,11 @@ export function Academy({ locale }: { locale: Locale }) {
           <SectionLabel index={4} label={c.label[locale]} locale={locale} />
         </div>
 
-        <MotionReveal>
-          <h2
-            dir="auto"
-            className="max-w-4xl font-display text-4xl font-semibold leading-[1.1] text-bone sm:text-5xl md:text-6xl"
-          >
-            {c.positioning[locale]}
-          </h2>
-        </MotionReveal>
+        <RevealText
+          as="h2"
+          text={c.positioning[locale]}
+          className="block max-w-4xl font-display text-4xl font-semibold leading-[1.1] text-bone sm:text-5xl md:text-6xl"
+        />
         <MotionReveal delay={0.08}>
           <p dir="auto" className="mt-5 max-w-2xl text-lg text-bone-muted">
             {c.sub[locale]}
@@ -147,7 +145,7 @@ export function Academy({ locale }: { locale: Locale }) {
               href={copy.links.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 rounded-full bg-gold px-7 py-4 text-base font-semibold text-ink transition-transform duration-300 ease-editorial hover:-translate-y-0.5"
+              className="cta-trace inline-flex items-center gap-2.5 rounded-full bg-gold px-7 py-4 text-base font-semibold text-ink transition-transform duration-300 ease-editorial hover:-translate-y-0.5"
             >
               <WhatsappIcon className="h-5 w-5" />
               {c.enroll[locale]}

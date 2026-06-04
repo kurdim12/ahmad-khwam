@@ -16,7 +16,7 @@ export function Media({ locale }: { locale: Locale }) {
   const items = getMedia();
 
   return (
-    <section id="media" data-trace-node="media" className="scroll-mt-24 border-y border-line bg-ink-soft py-24 sm:py-28">
+    <section id="media" data-trace-node="media" className="scroll-mt-24 border-y border-line bg-ink-soft py-16 sm:py-24">
       <div className="shell">
         <SectionHeading
           index={3}

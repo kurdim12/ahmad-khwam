@@ -49,6 +49,21 @@ export const copy = {
     ctaYoutube: { ar: "يوتيوب", en: "YouTube" },
   },
 
+  // Impact centerpiece: the audience as the living trace (real number, representational field).
+  audience: {
+    label: { ar: "الأثر الحيّ", en: "The living trace" },
+    big: { ar: "٨٤٫٥ ألف", en: "84.5K" },
+    unit: { ar: "إنسانٍ يستمعون", en: "people listening" },
+    lead: {
+      ar: "ليسوا رقماً، ولا متابعين. هم أثرٌ يمشي على قدمين.",
+      en: "Not a number, not followers. A trace that walks on two feet.",
+    },
+    caption: {
+      ar: "كلُّ علامةٍ هنا تمثّل أناساً مسّهم أثره.",
+      en: "Each mark here stands for people his trace has touched.",
+    },
+  },
+
   about: {
     label: { ar: "عن أحمد", en: "About" },
     title: { ar: "إنسان، قبل كل شيء.", en: "Human, before anything." },
