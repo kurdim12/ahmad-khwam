@@ -1,0 +1,49 @@
+{
+  "_seedNote": "VERBATIM SEED ONLY. These entries use Ahmad's exact words sourced from docs/PORTFOLIO.md — no captions, quotes, dates, or engagement counts were invented. Fields that cannot be sourced truthfully (real per-post permalinks, dates, exact engagement) are intentionally omitted; the UI degrades gracefully. Replace this file with the full Apify export (include displayUrl/videoUrl) via tools/apify_to_manifest.py to populate every section with real posts.",
+  "items": [
+    {
+      "profile": "ahmadkahtan_",
+      "shortcode": "seed-resonance-1",
+      "permalink": "https://instagram.com/ahmadkahtan_",
+      "caption": "لنرى بعض المعاني في معانينا",
+      "engagement": 13000,
+      "owner": "ahmadkahtan_",
+      "rank": 1
+    },
+    {
+      "profile": "ahmadkahtan_",
+      "shortcode": "seed-resonance-2",
+      "permalink": "https://instagram.com/ahmadkahtan_",
+      "caption": "اللهم علّمنا ما ينفعنا، وأنفع وأثّر بنا",
+      "engagement": 12000,
+      "owner": "ahmadkahtan_",
+      "rank": 2
+    },
+    {
+      "profile": "ahmadkahtan_",
+      "shortcode": "seed-podcast-maaz",
+      "permalink": "https://instagram.com/ahmadkahtan_",
+      "caption": "",
+      "outlet": "مع معاذ",
+      "kind": "podcast",
+      "owner": "ahmadkahtan_",
+      "rank": 9
+    },
+    {
+      "profile": "thinkquality_academyy",
+      "shortcode": "seed-academy-1",
+      "permalink": "https://instagram.com/thinkquality_academyy",
+      "caption": "أطلق المتحدّث ( الإنسان ) بداخلك",
+      "owner": "thinkquality_academyy",
+      "rank": 1
+    },
+    {
+      "profile": "thinkquality_academyy",
+      "shortcode": "seed-academy-2",
+      "permalink": "https://instagram.com/thinkquality_academyy",
+      "caption": "أول مجتمع متخصّص بتطوير الشخصية والفكر بداخلك",
+      "owner": "thinkquality_academyy",
+      "rank": 2
+    }
+  ]
+}
