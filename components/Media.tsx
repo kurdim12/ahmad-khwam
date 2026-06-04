@@ -19,9 +19,11 @@ export function Media({ locale }: { locale: Locale }) {
     <section id="media" data-trace-node="media" className="scroll-mt-24 border-y border-line bg-ink-soft py-24 sm:py-28">
       <div className="shell">
         <SectionHeading
+          index={3}
           label={copy.media.label[locale]}
           title={copy.media.title[locale]}
           lead={copy.media.lead[locale]}
+          locale={locale}
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

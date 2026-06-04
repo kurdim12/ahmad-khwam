@@ -39,7 +39,7 @@ export function WorkCard({
         <span className="eyebrow">{copy.work.label[locale]}</span>
         <p
           dir="auto"
-          className={`mt-5 line-clamp-3 font-display font-medium leading-[1.3] text-bone ${
+          className={`mt-5 line-clamp-3 font-quote leading-[1.35] text-bone ${
             feature ? "text-3xl sm:text-4xl md:text-[2.6rem]" : "text-2xl sm:text-[1.75rem]"
           }`}
         >

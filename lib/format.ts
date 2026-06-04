@@ -9,6 +9,14 @@ export function formatNumber(value: number, locale: Locale): string {
   }).format(value);
 }
 
+/** Two-digit section index in locale digits — e.g. ٠٣ (ar) / 03 (en). */
+export function formatIndex(value: number, locale: Locale): string {
+  return new Intl.NumberFormat(numberLocale(locale), {
+    minimumIntegerDigits: 2,
+    useGrouping: false,
+  }).format(value);
+}
+
 /**
  * Metrics → meaning. Engagement (likes + comments) becomes a "trace in N hearts".
  * The number is rendered in locale digits; the framing is never a raw count.

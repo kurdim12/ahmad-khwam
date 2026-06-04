@@ -1,6 +1,7 @@
 import { copy } from "@/content/copy";
 import type { Locale } from "@/lib/i18n";
 import { MotionReveal } from "./MotionReveal";
+import { SectionLabel } from "./SectionLabel";
 
 export function About({ locale }: { locale: Locale }) {
   const c = copy.about;
@@ -9,9 +10,8 @@ export function About({ locale }: { locale: Locale }) {
     <section id="about" data-trace-node="about" className="shell scroll-mt-24 py-24 sm:py-32">
       <div className="grid items-start gap-12 md:grid-cols-[1.4fr_1fr] md:gap-16">
         <div>
-          <div className="mb-4 flex items-center gap-3">
-            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-gold" />
-            <span className="eyebrow">{c.label[locale]}</span>
+          <div className="mb-5">
+            <SectionLabel index={1} label={c.label[locale]} locale={locale} />
           </div>
 
           <MotionReveal>
@@ -34,7 +34,7 @@ export function About({ locale }: { locale: Locale }) {
             <figure className="mt-10 [border-inline-start:2px_solid_var(--gold)] ps-5">
               <blockquote
                 dir="auto"
-                className="font-display text-2xl font-light leading-snug text-bone sm:text-[1.75rem]"
+                className="font-quote text-[1.65rem] leading-snug text-bone sm:text-[2rem]"
               >
                 {c.pullquote[locale]}
               </blockquote>

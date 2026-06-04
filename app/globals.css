@@ -54,6 +54,20 @@ body::before {
   background-position: center;
 }
 
+/* Arabic reading rhythm: Arabic needs ~6–12% more size and looser leading than
+   Latin for equal readability (diacritics + cursive). Scoped to the ar locale. */
+html[lang="ar"] {
+  font-size: 106.25%; /* ~17px base; rem-driven scale grows for Arabic */
+}
+html[lang="ar"] body {
+  line-height: 1.85;
+  letter-spacing: 0;
+}
+/* Tracking is a Latin-only device — never on connected Arabic letterforms. */
+html[lang="en"] .eyebrow {
+  letter-spacing: 0.3em;
+}
+
 @layer base {
   ::selection {
     background: var(--gold);
@@ -79,8 +93,10 @@ body::before {
     @apply mx-auto w-full max-w-shell px-5 sm:px-8;
   }
 
+  /* Eyebrow: uppercase + wide tracking is a Latin device. Tracking is applied
+     ONLY to Latin — letter-spacing on Arabic breaks its connected letterforms. */
   .eyebrow {
-    @apply text-[0.7rem] uppercase tracking-[0.32em] text-gold;
+    @apply text-[0.72rem] uppercase text-gold;
   }
 
   .hairline {

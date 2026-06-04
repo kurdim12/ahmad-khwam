@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
-import { body, display } from "../fonts";
+import { body, display, serifArabic, serifLatin } from "../fonts";
 import { copy } from "@/content/copy";
 import { dir, isLocale, locales, type Locale } from "@/lib/i18n";
 import "../globals.css";
@@ -85,7 +85,7 @@ export default function LocaleLayout({
     <html
       lang={locale}
       dir={dir(locale)}
-      className={`${display.variable} ${body.variable}`}
+      className={`${display.variable} ${body.variable} ${serifArabic.variable} ${serifLatin.variable}`}
       suppressHydrationWarning
     >
       <body className="font-body antialiased">

@@ -19,10 +19,26 @@ Read `docs/PORTFOLIO.md` first, fully — it has the exact sitemap, section spec
 
 ## Chosen visual direction
 
-**Warm-ink editorial dark.** Warm near-black ground, bone text, a single antique-gold accent
-(the "gold dot"). Reem Kufi display + IBM Plex Sans Arabic body. Subtle film grain + faint gold
-hairlines. Restrained in-view motion. A thinker's portfolio — calm, premium, meaning-driven —
-not a flashy influencer page. Tokens live as CSS variables in `app/globals.css`.
+**Warm-ink editorial dark, themed «أثر / The Trace».** Warm near-black ground, bone text, a single
+antique-gold accent (the "gold dot"). A thinker's portfolio — calm, premium, meaning-driven — not a
+flashy influencer page. Tokens live as CSS variables in `app/globals.css`.
+
+**Concept — أثر (the trace that remains), from his own mission «أكون الأثر»:**
+- Pen-trace spine (`components/effects/ScrollTrace`): a gold rail whose head descends as you read,
+  lighting each section node.
+- Cursor trace (`components/effects/CursorTrace`, behind `lib/flags`): a fading gold trail — guarded
+  on fine-pointer + reduced-motion.
+- Drawn marks: hand-drawn underline on the name, his trailing «…» as a living gold mark, hover
+  "trace brackets" on cards.
+
+**Type system (research-backed):**
+- **Reem Kufi** — brand & structure (name, nav, section titles).
+- **Amiri** (classical Naskh) — HIS words: quotes, the dua, captions. Latin counterpart **Newsreader**.
+  The `font-quote` stack resolves Latin→Newsreader, Arabic→Amiri per-glyph.
+- **IBM Plex Sans Arabic** — functional body/UI.
+- Arabic rhythm: +6% root size and `line-height: 1.85` on `[lang=ar]`. **Never** apply letter-spacing
+  to Arabic (breaks connected letters) — tracking is scoped to `[lang=en]` only.
+- Language switch is named in its own script (العربية / English).
 
 ## Data
 

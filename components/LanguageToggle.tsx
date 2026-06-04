@@ -15,10 +15,12 @@ export function LanguageToggle({ locale }: { locale: Locale }) {
     <Link
       href={target}
       hrefLang={next}
+      lang={next}
       aria-label={copy.nav.toggleLabel[locale]}
-      className="group inline-flex h-9 min-w-9 items-center justify-center rounded-full border border-line px-3 text-sm font-medium text-bone-muted transition-colors duration-300 hover:border-gold/40 hover:text-bone"
+      className="group inline-flex h-9 items-center justify-center gap-1.5 rounded-full border border-line px-3.5 text-sm font-medium text-bone-muted transition-colors duration-300 hover:border-gold/40 hover:text-bone"
     >
-      <span className="ltr-num leading-none">{copy.nav.toggleTo[locale]}</span>
+      <span aria-hidden className="h-1 w-1 rounded-full bg-gold/70 transition-colors group-hover:bg-gold" />
+      <span className="leading-none">{copy.nav.toggleTo[locale]}</span>
     </Link>
   );
 }

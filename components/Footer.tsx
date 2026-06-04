@@ -1,4 +1,5 @@
 import { copy } from "@/content/copy";
+import { formatIndex } from "@/lib/format";
 import type { Locale } from "@/lib/i18n";
 import { InstagramIcon, WhatsappIcon, YoutubeIcon } from "./icons";
 import { MotionReveal } from "./MotionReveal";
@@ -16,7 +17,10 @@ export function Footer({ locale }: { locale: Locale }) {
   return (
     <footer id="contact" data-trace-node="contact" className="scroll-mt-24 border-t border-line py-24 sm:py-28">
       <div className="shell flex flex-col items-center text-center">
-        <div className="mb-8 flex items-center gap-3">
+        <div className="mb-8 flex items-center justify-center gap-3">
+          <span className="ltr-num font-display text-xs text-gold">
+            {formatIndex(5, locale)}
+          </span>
           <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-gold" />
           <span className="eyebrow">{c.label[locale]}</span>
         </div>
@@ -24,7 +28,7 @@ export function Footer({ locale }: { locale: Locale }) {
         <MotionReveal>
           <p
             dir="auto"
-            className="mx-auto max-w-2xl font-display text-2xl font-light leading-relaxed text-bone sm:text-[1.9rem]"
+            className="mx-auto max-w-2xl font-quote text-[1.7rem] leading-relaxed text-bone sm:text-[2.1rem]"
           >
             {c.dua[locale]}
           </p>

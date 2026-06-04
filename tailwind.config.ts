@@ -31,7 +31,8 @@ const config: Config = {
       fontFamily: {
         display: ["var(--font-display)", "serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
-        latin: ["var(--font-latin)", "serif"],
+        // His voice: Latin glyphs resolve to Newsreader, Arabic glyphs to Amiri.
+        quote: ["var(--font-serif-latin)", "var(--font-serif-ar)", "Georgia", "serif"],
       },
       maxWidth: {
         prose: "68ch",

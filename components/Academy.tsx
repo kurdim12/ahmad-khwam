@@ -4,6 +4,7 @@ import type { Locale } from "@/lib/i18n";
 import { getAcademyJournal } from "@/lib/manifest";
 import { ArrowIcon, WhatsappIcon } from "./icons";
 import { MotionReveal } from "./MotionReveal";
+import { SectionLabel } from "./SectionLabel";
 
 export function Academy({ locale }: { locale: Locale }) {
   const c = copy.academy;
@@ -19,9 +20,8 @@ export function Academy({ locale }: { locale: Locale }) {
 
       <div className="shell">
         {/* Positioning */}
-        <div className="mb-4 flex items-center gap-3">
-          <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-gold" />
-          <span className="eyebrow">{c.label[locale]}</span>
+        <div className="mb-5">
+          <SectionLabel index={4} label={c.label[locale]} locale={locale} />
         </div>
 
         <MotionReveal>
@@ -94,7 +94,7 @@ export function Academy({ locale }: { locale: Locale }) {
                         {formatDate(item.date, locale)}
                       </span>
                     ) : null}
-                    <p dir="auto" className="mt-2 line-clamp-3 font-display text-lg leading-snug text-bone">
+                    <p dir="auto" className="mt-2 line-clamp-3 font-quote text-xl leading-snug text-bone">
                       {item.caption}
                     </p>
                     <span className="mt-auto flex items-center justify-between gap-3 pt-5">

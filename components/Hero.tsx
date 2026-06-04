@@ -81,7 +81,7 @@ export function Hero({ locale }: { locale: Locale }) {
         <MotionReveal delay={0.2}>
           <p
             dir="auto"
-            className="mt-8 max-w-2xl font-display text-2xl font-light leading-snug text-bone-muted sm:text-3xl"
+            className="mt-8 max-w-2xl font-quote text-[1.7rem] leading-snug text-bone-muted sm:text-[2.1rem]"
           >
             <TrailingStatement text={c.statement[locale]} />
           </p>

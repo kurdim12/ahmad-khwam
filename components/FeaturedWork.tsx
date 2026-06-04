@@ -13,9 +13,11 @@ export function FeaturedWork({ locale }: { locale: Locale }) {
   return (
     <section id="work" data-trace-node="work" className="shell scroll-mt-24 py-24 sm:py-32">
       <SectionHeading
+        index={2}
         label={copy.work.label[locale]}
         title={copy.work.title[locale]}
         lead={copy.work.lead[locale]}
+        locale={locale}
       />
 
       {items.length === 0 ? (

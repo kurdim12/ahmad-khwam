@@ -28,7 +28,8 @@ export const copy = {
     academy: { ar: "الأكاديمية", en: "Academy" },
     contact: { ar: "تواصل", en: "Contact" },
     brand: { ar: "أحمد قحطان", en: "Ahmad Kahtan" },
-    toggleTo: { ar: "EN", en: "ع" },
+    // The target language, named in its own script (i18n best practice).
+    toggleTo: { ar: "English", en: "العربية" },
     toggleLabel: { ar: "التبديل إلى الإنجليزية", en: "Switch to Arabic" },
     skip: { ar: "تخطَّ إلى المحتوى", en: "Skip to content" },
     menu: { ar: "القائمة", en: "Menu" },

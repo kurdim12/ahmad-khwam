@@ -1,14 +1,19 @@
-import { Reem_Kufi, IBM_Plex_Sans_Arabic } from "next/font/google";
+import {
+  Reem_Kufi,
+  IBM_Plex_Sans_Arabic,
+  Amiri,
+  Newsreader,
+} from "next/font/google";
 
-/** Characterful Arabic display — the voice of headings and the logo mark. */
+/** Geometric Kufi — brand & structure: the name, nav, section titles. */
 export const display = Reem_Kufi({
   subsets: ["arabic", "latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
-/** Clean, legible Arabic body — also carries Latin numerals/handles cleanly. */
+/** Clean Arabic body — functional UI text; carries Latin numerals/handles cleanly. */
 export const body = IBM_Plex_Sans_Arabic({
   subsets: ["arabic", "latin"],
   weight: ["300", "400", "500", "600"],
@@ -16,5 +21,20 @@ export const body = IBM_Plex_Sans_Arabic({
   display: "swap",
 });
 
-/** Latin display falls back to the same body family for cohesion. */
-export const latin = body;
+/** Classical Naskh — reserved for HIS words: quotes, the dua, captions. Literary gravitas. */
+export const serifArabic = Amiri({
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-serif-ar",
+  display: "swap",
+});
+
+/** Editorial Latin serif — the English counterpart to Amiri for his translated words. */
+export const serifLatin = Newsreader({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-serif-latin",
+  display: "swap",
+});
