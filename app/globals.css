@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Warm-ink editorial palette ----------------------------------------- */
+  --ink: #0e0c0a;          /* warm near-black ground */
+  --ink-soft: #15110d;     /* slightly raised panels */
+  --ink-raised: #1c1712;   /* cards */
+  --bone: #f3ead9;         /* primary warm bone text */
+  --bone-muted: #cabfa9;   /* secondary text */
+  --bone-faint: #8c8170;   /* tertiary / captions meta */
+  --gold: #c9a24b;         /* antique gold accent */
+  --gold-soft: rgba(201, 162, 75, 0.35);
+  --gold-deep: #9b7a31;
+  --clay: #b9774f;         /* warm secondary accent */
+  --line: rgba(243, 234, 217, 0.10);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  color-scheme: dark;
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem; /* clear the sticky header on anchor jumps */
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--bone);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Subtle film grain over the whole calm-black ground -------------------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Faint gold hairline grid, only where the mood allows ------------------ */
+.texture-dots {
+  background-image: radial-gradient(var(--gold-soft) 0.5px, transparent 0.5px);
+  background-size: 22px 22px;
+  background-position: center;
+}
+
+@layer base {
+  ::selection {
+    background: var(--gold);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Numbers, handles and URLs always render LTR even inside RTL text */
+  .ltr-num {
+    direction: ltr;
+    unicode-bidi: isolate;
+    font-feature-settings: "tnum" 1;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-[0.7rem] uppercase tracking-[0.32em] text-gold;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-[var(--line)];
+  }
+
+  /* Card hover: gentle lift + gold border glow */
+  .card-glow {
+    transition: transform 0.5s var(--ease), border-color 0.5s var(--ease),
+      box-shadow 0.5s var(--ease);
+  }
+  .card-glow:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold-soft);
+    box-shadow: var(--shadow-glow, 0 18px 50px -24px rgba(201, 162, 75, 0.35));
+  }
+}
+
+/* Respect reduced-motion: kill transitions, animations, smooth scroll ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card-glow:hover {
+    transform: none;
+  }
+}
