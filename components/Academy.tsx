@@ -72,14 +72,14 @@ export function Academy({ locale }: { locale: Locale }) {
           </div>
         </MotionReveal>
 
-        {/* دفتر الرحلة — journal */}
-        <div className="mt-20">
-          <h3 dir="auto" className="font-display text-2xl font-medium text-bone sm:text-3xl">
-            {c.journalTitle[locale]}
-          </h3>
-          <p dir="auto" className="mt-2 text-bone-muted">{c.journalLead[locale]}</p>
+        {/* دفتر الرحلة — journal (only when there is real academy data) */}
+        {journal.length > 0 ? (
+          <div className="mt-20">
+            <h3 dir="auto" className="font-display text-2xl font-medium text-bone sm:text-3xl">
+              {c.journalTitle[locale]}
+            </h3>
+            <p dir="auto" className="mt-2 text-bone-muted">{c.journalLead[locale]}</p>
 
-          {journal.length > 0 ? (
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {journal.map((item, i) => (
                 <MotionReveal as="li" key={item.shortcode ?? i} delay={(i % 3) * 0.07}>
@@ -111,8 +111,8 @@ export function Academy({ locale }: { locale: Locale }) {
                 </MotionReveal>
               ))}
             </ul>
-          ) : null}
-        </div>
+          </div>
+        ) : null}
 
         {/* Participant voices — labeled placeholders, never invented */}
         <div className="mt-20">
