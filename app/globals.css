@@ -3,21 +3,26 @@
 @tailwind utilities;
 
 :root {
-  /* Warm-ink editorial palette ----------------------------------------- */
-  --ink: #0e0c0a;          /* warm near-black ground */
-  --ink-soft: #15110d;     /* slightly raised panels */
-  --ink-raised: #1c1712;   /* cards */
-  --bone: #f3ead9;         /* primary warm bone text */
-  --bone-muted: #cabfa9;   /* secondary text */
-  --bone-faint: #8c8170;   /* tertiary / captions meta */
-  --gold: #c9a24b;         /* antique gold accent */
-  --gold-soft: rgba(201, 162, 75, 0.35);
-  --gold-deep: #9b7a31;
-  --clay: #b9774f;         /* warm secondary accent */
-  --line: rgba(243, 234, 217, 0.10);
+  /* «المخطوطة» — Paper-manuscript palette ------------------------------
+     Token NAMES are kept stable so the whole site recolours from here, but the
+     ROLES are inverted to light-on-paper:
+       --ink*  = the parchment ground & surfaces (light)
+       --bone* = sepia-espresso ink (the text)
+       --gold* = the rubric red accent (the scribe's reserved ink) */
+  --ink: #f4ead7;          /* parchment ground */
+  --ink-soft: #efe2cb;     /* tinted bands / panels */
+  --ink-raised: #fbf4e4;   /* a fresh sheet — cards */
+  --bone: #241a0f;         /* sepia-espresso ink (primary text) */
+  --bone-muted: #5b4c38;   /* secondary text */
+  --bone-faint: #786545;   /* tertiary / meta (AA on paper) */
+  --gold: #b23a2e;         /* rubric red — the single accent */
+  --gold-soft: rgba(178, 58, 46, 0.30);
+  --gold-deep: #8e2a20;
+  --clay: #9a6a3a;         /* muted ochre secondary */
+  --line: rgba(36, 26, 15, 0.14);
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * {
@@ -36,20 +41,21 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Subtle film grain over the whole calm-black ground -------------------- */
+/* Paper fibre: a faint grain multiplied into the parchment ground -------- */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Faint gold hairline grid, only where the mood allows ------------------ */
+/* Faint ruled-paper dotting, only where the mood allows ----------------- */
 .texture-dots {
-  background-image: radial-gradient(var(--gold-soft) 0.5px, transparent 0.5px);
+  background-image: radial-gradient(rgba(36, 26, 15, 0.11) 0.5px, transparent 0.5px);
   background-size: 22px 22px;
   background-position: center;
 }
@@ -111,7 +117,7 @@ html[lang="en"] .eyebrow {
   .card-glow:hover {
     transform: translateY(-4px);
     border-color: var(--gold-soft);
-    box-shadow: var(--shadow-glow, 0 18px 50px -24px rgba(201, 162, 75, 0.35));
+    box-shadow: 0 1px 0 0 var(--gold-soft), 0 22px 44px -28px rgba(36, 26, 15, 0.4);
   }
 
   /* ── Concept: أثر / the trace ─────────────────────────────────────── */

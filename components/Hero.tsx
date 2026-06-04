@@ -36,7 +36,7 @@ export function Hero({ locale }: { locale: Locale }) {
         className="pointer-events-none absolute inset-0 -z-10"
       >
         <div className="texture-dots absolute inset-0 opacity-40" />
-        <div className="absolute -top-1/3 start-1/2 h-[60rem] w-[60rem] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(201,162,75,0.12),transparent)]" />
+        <div className="absolute -top-1/3 start-1/2 h-[60rem] w-[60rem] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(178,58,46,0.10),transparent)]" />
       </div>
 
       <div className="shell flex min-h-[92svh] flex-col justify-center pb-20 pt-32 sm:pt-36">

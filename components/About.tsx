@@ -5,6 +5,10 @@ import { SectionLabel } from "./SectionLabel";
 
 export function About({ locale }: { locale: Locale }) {
   const c = copy.about;
+  // Illuminated incipit: rubricate the opening word (keeps the word intact — no
+  // detached Arabic letters, unlike a Western drop-cap).
+  const [incipit, ...restWords] = c.p1[locale].split(" ");
+  const p1Rest = restWords.join(" ");
 
   return (
     <section id="about" data-trace-node="about" className="shell scroll-mt-24 py-24 sm:py-32">
@@ -25,7 +29,12 @@ export function About({ locale }: { locale: Locale }) {
 
           <MotionReveal delay={0.08}>
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-bone-muted">
-              <p dir="auto">{c.p1[locale]}</p>
+              <p dir="auto">
+                <span className="font-display text-2xl font-bold text-gold">
+                  {incipit}
+                </span>{" "}
+                {p1Rest}
+              </p>
               <p dir="auto">{c.p2[locale]}</p>
             </div>
           </MotionReveal>
@@ -46,7 +55,7 @@ export function About({ locale }: { locale: Locale }) {
         <MotionReveal delay={0.12}>
           <figure className="relative aspect-[3/4] overflow-hidden rounded-card border border-line bg-ink-raised">
             <div className="texture-dots absolute inset-0 opacity-50" />
-            <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_-10%,rgba(201,162,75,0.14),transparent)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_-10%,rgba(178,58,46,0.12),transparent)]" />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
               <span
                 aria-hidden

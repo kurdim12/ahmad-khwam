@@ -1,6 +1,7 @@
 import { copy } from "@/content/copy";
 import type { Locale } from "@/lib/i18n";
 import { MotionReveal } from "./MotionReveal";
+import { Ornament } from "./Ornament";
 import { TraceWall } from "./TraceWall";
 
 /**
@@ -21,12 +22,13 @@ export function TraceBand({ locale }: { locale: Locale }) {
       <div aria-hidden className="texture-dots pointer-events-none absolute inset-0 opacity-30" />
       <div
         aria-hidden
-        className="pointer-events-none absolute start-1/2 top-1/2 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(201,162,75,0.10),transparent)]"
+        className="pointer-events-none absolute start-1/2 top-1/2 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(178,58,46,0.09),transparent)]"
       />
 
       <div className="shell relative flex flex-col items-center text-center">
         <MotionReveal>
-          <span className="eyebrow mb-6 inline-flex items-center gap-3">
+          <Ornament className="mb-8" />
+          <span className="eyebrow inline-flex items-center gap-3">
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-gold" />
             {c.label[locale]}
           </span>

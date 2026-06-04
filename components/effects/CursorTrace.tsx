@@ -46,14 +46,14 @@ export function CursorTrace({ enabled = true }: { enabled?: boolean }) {
 
     const stroke = (a: { x: number; y: number }, b: { x: number; y: number }) => {
       // soft halo
-      ctx.strokeStyle = "rgba(201,162,75,0.10)";
+      ctx.strokeStyle = "rgba(178,58,46,0.12)";
       ctx.lineWidth = 7;
       ctx.beginPath();
       ctx.moveTo(a.x, a.y);
       ctx.lineTo(b.x, b.y);
       ctx.stroke();
-      // bright core
-      ctx.strokeStyle = "rgba(201,162,75,0.55)";
+      // bright core (rubric red ink)
+      ctx.strokeStyle = "rgba(178,58,46,0.6)";
       ctx.lineWidth = 1.8;
       ctx.beginPath();
       ctx.moveTo(a.x, a.y);
@@ -86,7 +86,7 @@ export function CursorTrace({ enabled = true }: { enabled?: boolean }) {
 
       // A soft head where the pen currently rests.
       if (last.x >= 0) {
-        ctx.fillStyle = "rgba(201,162,75,0.5)";
+        ctx.fillStyle = "rgba(178,58,46,0.55)";
         ctx.beginPath();
         ctx.arc(last.x, last.y, 2.2, 0, Math.PI * 2);
         ctx.fill();

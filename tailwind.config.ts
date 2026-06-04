@@ -29,7 +29,8 @@ const config: Config = {
         line: "var(--line)",
       },
       fontFamily: {
-        display: ["var(--font-display)", "serif"],
+        // Headings: Latin glyphs resolve to Newsreader, Arabic glyphs to Aref Ruqaa.
+        display: ["var(--font-serif-latin)", "var(--font-display)", "Georgia", "serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
         // His voice: Latin glyphs resolve to Newsreader, Arabic glyphs to Amiri.
         quote: ["var(--font-serif-latin)", "var(--font-serif-ar)", "Georgia", "serif"],
@@ -42,8 +43,8 @@ const config: Config = {
         card: "1.25rem",
       },
       boxShadow: {
-        lift: "0 24px 60px -28px rgba(0,0,0,0.65)",
-        glow: "0 0 0 1px var(--gold-soft), 0 18px 50px -24px rgba(201,162,75,0.35)",
+        lift: "0 24px 60px -30px rgba(36,26,15,0.45)",
+        glow: "0 0 0 1px var(--gold-soft), 0 18px 50px -28px rgba(36,26,15,0.35)",
       },
       transitionTimingFunction: {
         editorial: "cubic-bezier(0.22, 1, 0.36, 1)",

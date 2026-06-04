@@ -1,14 +1,15 @@
 import {
-  Reem_Kufi,
+  Aref_Ruqaa,
   IBM_Plex_Sans_Arabic,
   Amiri,
   Newsreader,
 } from "next/font/google";
 
-/** Geometric Kufi — brand & structure: the name, nav, section titles. */
-export const display = Reem_Kufi({
+/** Calligraphic Ruqaa — the manuscript hand: the name, big statements, section titles.
+ *  Latin headings fall through to Newsreader (set in the Tailwind `display` stack). */
+export const display = Aref_Ruqaa({
   subsets: ["arabic", "latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "700"],
   variable: "--font-display",
   display: "swap",
 });
