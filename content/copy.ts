@@ -163,6 +163,37 @@ export const copy = {
       ar: "هم ليسوا رقماً — هم أثره. وأنت تنضمّ إليهم الآن.",
       en: "They are not a number — they are his trace. And now you join them.",
     },
+    wall: {
+      prompt: { ar: "اترك أثرك", en: "Leave your trace" },
+      placeholder: { ar: "اسمك، أو كلمة…", en: "Your name, or a word…" },
+      consent: {
+        ar: "أوافق على نشر أثري علنًا على هذا الموقع.",
+        en: "I agree to publish my trace publicly on this site.",
+      },
+      privacy: {
+        ar: "لا نحفظ سوى ما تكتبه هنا — لا شيء آخر.",
+        en: "We store only what you write here — nothing else.",
+      },
+      submit: { ar: "اترك أثري", en: "Leave my trace" },
+      submitting: { ar: "…يُترك", en: "Leaving…" },
+      done: {
+        ar: "تركتَ أثرك. شكراً لمرورك.",
+        en: "You left your trace. Thank you for passing through.",
+      },
+      pending: {
+        ar: "أثرك قيد المراجعة، وسيظهر قريباً.",
+        en: "Your trace is under review and will appear soon.",
+      },
+      localNote: {
+        ar: "محفوظٌ على جهازك حتى يُفعَّل الجدار.",
+        en: "Saved on your device until the wall goes live.",
+      },
+      empty: { ar: "كن أوّل من يترك أثراً.", en: "Be the first to leave a trace." },
+      error: {
+        ar: "تعذّر ترك الأثر الآن. حاول لاحقاً.",
+        en: "Couldn't leave the trace right now. Try again later.",
+      },
+    },
   },
 
   contact: {

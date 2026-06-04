@@ -1,6 +1,7 @@
 import { copy } from "@/content/copy";
 import type { Locale } from "@/lib/i18n";
 import { MotionReveal } from "./MotionReveal";
+import { TraceWall } from "./TraceWall";
 
 /**
  * The turn outward. His mission «أكون الأثر» becomes the visitor's: by passing
@@ -53,6 +54,10 @@ export function TraceBand({ locale }: { locale: Locale }) {
           <p dir="auto" className="mt-6 max-w-md text-sm leading-relaxed text-bone-faint">
             {c.audience[locale]}
           </p>
+        </MotionReveal>
+
+        <MotionReveal delay={0.26} className="flex w-full justify-center">
+          <TraceWall locale={locale} />
         </MotionReveal>
       </div>
     </section>
