@@ -9,17 +9,17 @@
        --ink*  = the parchment ground & surfaces (light)
        --bone* = sepia-espresso ink (the text)
        --gold* = the rubric red accent (the scribe's reserved ink) */
-  --ink: #f4ead7;          /* parchment ground */
-  --ink-soft: #efe2cb;     /* tinted bands / panels */
-  --ink-raised: #fbf4e4;   /* a fresh sheet — cards */
-  --bone: #241a0f;         /* sepia-espresso ink (primary text) */
-  --bone-muted: #5b4c38;   /* secondary text */
-  --bone-faint: #786545;   /* tertiary / meta (AA on paper) */
-  --gold: #b23a2e;         /* rubric red — the single accent */
-  --gold-soft: rgba(178, 58, 46, 0.30);
-  --gold-deep: #8e2a20;
-  --clay: #9a6a3a;         /* muted ochre secondary */
-  --line: rgba(36, 26, 15, 0.14);
+  --ink: #ebe5d7;          /* newsprint ground (cooler, greyer paper) */
+  --ink-soft: #e2dac8;     /* tinted bands / panels */
+  --ink-raised: #f4efe3;   /* a fresh clipping — cards */
+  --bone: #1b1812;         /* soft newspaper-black ink (primary text) */
+  --bone-muted: #4c4538;   /* secondary text */
+  --bone-faint: #6b6250;   /* tertiary / meta (AA on newsprint) */
+  --gold: #b5362a;         /* printed spot red — the single accent */
+  --gold-soft: rgba(181, 54, 42, 0.30);
+  --gold-deep: #8c281d;
+  --clay: #8a6a3a;         /* muted ochre secondary */
+  --line: rgba(27, 24, 18, 0.20); /* crisper editorial rules */
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   color-scheme: light;

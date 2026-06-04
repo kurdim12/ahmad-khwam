@@ -47,6 +47,21 @@ export function About({ locale }: { locale: Locale }) {
               </blockquote>
             </figure>
           </MotionReveal>
+
+          <MotionReveal delay={0.2}>
+            <div className="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2">
+              <span className="eyebrow me-1">{c.focusLabel[locale]}</span>
+              {c.focus.map((f, i) => (
+                <span
+                  key={i}
+                  dir="auto"
+                  className="rounded-full border border-line px-3.5 py-1.5 text-sm text-bone-muted"
+                >
+                  {f[locale]}
+                </span>
+              ))}
+            </div>
+          </MotionReveal>
         </div>
 
         {/* Portrait slot — elegant typographic block until the asset arrives */}

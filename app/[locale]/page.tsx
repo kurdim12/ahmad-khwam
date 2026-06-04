@@ -7,6 +7,7 @@ import { AudienceField } from "@/components/AudienceField";
 import { FeaturedWork } from "@/components/FeaturedWork";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { Helps } from "@/components/Helps";
 import { Hero } from "@/components/Hero";
 import { Media } from "@/components/Media";
 import { TraceBand } from "@/components/TraceBand";
@@ -36,6 +37,7 @@ export default function Page({ params }: { params: { locale: string } }) {
         <Hero locale={locale} />
         <AudienceField locale={locale} />
         <About locale={locale} />
+        <Helps locale={locale} />
         <FeaturedWork locale={locale} />
         <Media locale={locale} />
         <Academy locale={locale} />

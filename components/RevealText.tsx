@@ -43,7 +43,9 @@ export function RevealText({
     );
   }
 
-  const MotionTag = motion(Tag);
+  // Correct Framer API for a dynamic DOM tag: index the motion proxy (motion.h2),
+  // not motion(Tag) — calling the proxy with a string breaks hydration.
+  const MotionTag = (motion as unknown as Record<string, ElementType>)[as as string];
   return (
     <MotionTag
       dir="auto"

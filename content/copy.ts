@@ -64,8 +64,47 @@ export const copy = {
     },
   },
 
+  // Impact-led framing (the site's voice to the visitor — not quotes from Ahmad).
+  helps: {
+    label: { ar: "الأثر", en: "How he helps" },
+    title: { ar: "ما الذي يتغيّر فيك", en: "What changes in you" },
+    lead: {
+      ar: "لا محاضراتٌ تُنسى، بل أثرٌ تحمله معك.",
+      en: "Not lectures you forget — a trace you carry with you.",
+    },
+    items: [
+      {
+        title: { ar: "أن تَملِك صوتك", en: "You own your voice" },
+        body: {
+          ar: "تقف أمام الناس، فلا يخونك صوتك ولا يرتجف.",
+          en: "You stand before people, and your voice neither betrays you nor trembles.",
+        },
+      },
+      {
+        title: { ar: "أن تفهم الإنسان", en: "You understand people" },
+        body: {
+          ar: "تقرأ ما خلف الكلمات؛ في نفسك، وفيمن أمامك.",
+          en: "You read what's behind the words — in yourself, and in the one before you.",
+        },
+      },
+      {
+        title: { ar: "أن تترك أثراً", en: "You leave a trace" },
+        body: {
+          ar: "تقول كلمتك، فتبقى في القلب بعد أن تمضي.",
+          en: "You say your word, and it stays in the heart after you've gone.",
+        },
+      },
+    ] as { title: Bilingual; body: Bilingual }[],
+  },
+
   about: {
     label: { ar: "عن أحمد", en: "About" },
+    focusLabel: { ar: "مجالاته", en: "His fields" },
+    focus: [
+      { ar: "السلوك الإنساني", en: "Human behavior" },
+      { ar: "التواصل", en: "Communication" },
+      { ar: "الإلقاء", en: "Public speaking" },
+    ] as Bilingual[],
     title: { ar: "إنسان، قبل كل شيء.", en: "Human, before anything." },
     p1: {
       ar: "أحمد قحطان باحثٌ وكاتبٌ ومدرّبٌ في السلوك الإنساني. يشتغل على ما يجمعنا حقًّا: التواصل، والإلقاء، وفهم النفس وما يتحرّك خلف الكلمات.",
@@ -132,12 +171,25 @@ export const copy = {
     pillars: [
       {
         title: { ar: "كسر حاجز الرهبة", en: "Breaking the fear barrier" },
+        outcome: { ar: "تقف، فلا يخونك صوتك.", en: "You stand, and your voice holds." },
         no: "01",
       },
-      { title: { ar: "العمق النفسي", en: "Psychological depth" }, no: "02" },
-      { title: { ar: "أسرار الكاريزما", en: "The secrets of charisma" }, no: "03" },
-      { title: { ar: "لغة الإقناع", en: "The language of persuasion" }, no: "04" },
-    ] as { title: Bilingual; no: string }[],
+      {
+        title: { ar: "العمق النفسي", en: "Psychological depth" },
+        outcome: { ar: "تفهم نفسك، فتفهم سواك.", en: "Know yourself, and you know others." },
+        no: "02",
+      },
+      {
+        title: { ar: "أسرار الكاريزما", en: "The secrets of charisma" },
+        outcome: { ar: "تدخل، فيُشعَر بك.", en: "You enter, and you are felt." },
+        no: "03",
+      },
+      {
+        title: { ar: "لغة الإقناع", en: "The language of persuasion" },
+        outcome: { ar: "تقول، فيبقى الأثر.", en: "You speak, and the trace remains." },
+        no: "04",
+      },
+    ] as { title: Bilingual; outcome: Bilingual; no: string }[],
     accreditationTitle: { ar: "اعتمادات", en: "Accreditation" },
     accreditation: [
       { ar: "Kensington Academic Pathways", en: "Kensington Academic Pathways" },

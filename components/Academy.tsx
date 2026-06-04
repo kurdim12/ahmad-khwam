@@ -42,10 +42,13 @@ export function Academy({ locale }: { locale: Locale }) {
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {c.pillars.map((p, i) => (
               <MotionReveal as="li" key={p.no} delay={i * 0.07}>
-                <div className="card-glow trace-card relative h-full rounded-card border border-line bg-ink-raised p-6">
+                <div className="card-glow trace-card relative flex h-full flex-col rounded-card border border-line bg-ink-raised p-6">
                   <span className="ltr-num font-display text-sm text-gold">{p.no}</span>
                   <p dir="auto" className="mt-4 font-display text-xl font-medium leading-snug text-bone">
                     {p.title[locale]}
+                  </p>
+                  <p dir="auto" className="mt-3 font-quote text-base leading-relaxed text-bone-muted">
+                    {p.outcome[locale]}
                   </p>
                 </div>
               </MotionReveal>
