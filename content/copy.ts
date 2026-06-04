@@ -150,6 +150,21 @@ export const copy = {
     enroll: { ar: "ابدأ رحلتك", en: "Begin your journey" },
   },
 
+  // The turn outward: his mission «أكون الأثر» extended to whoever passes through.
+  // Curatorial UI copy — deliberately NOT in the Amiri "his words" voice.
+  trace: {
+    label: { ar: "الأثر", en: "The trace" },
+    title: { ar: "أنت الأثر", en: "You are the trace" },
+    body: {
+      ar: "هذه ليست صفحةً تُتصفَّح، بل أثرٌ يُترَك. كلُّ من مرَّ من هنا ترك أثراً… وأنت الآن منهم.",
+      en: "This is not a page to browse, but a trace to leave. Everyone who passed here left a mark … and now you are one of them.",
+    },
+    audience: {
+      ar: "هم ليسوا رقماً — هم أثره. وأنت تنضمّ إليهم الآن.",
+      en: "They are not a number — they are his trace. And now you join them.",
+    },
+  },
+
   contact: {
     label: { ar: "تواصل", en: "Contact" },
     dua: {

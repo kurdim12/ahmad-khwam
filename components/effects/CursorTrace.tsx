@@ -25,8 +25,10 @@ export function CursorTrace({ enabled = true }: { enabled?: boolean }) {
     let raf = 0;
     let dpr = Math.min(window.devicePixelRatio || 1, 2);
     const points: { x: number; y: number }[] = [];
-    const MAX = 26;
+    let painted = 0; // segments already committed to the canvas
     let last = { x: -1, y: -1 };
+    // Slow fade => the trace LINGERS: you watch the mark you leave on the page.
+    const FADE = 0.03;
 
     const resize = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -40,39 +42,55 @@ export function CursorTrace({ enabled = true }: { enabled?: boolean }) {
     const onMove = (e: PointerEvent) => {
       last = { x: e.clientX, y: e.clientY };
       points.push({ x: e.clientX, y: e.clientY });
-      if (points.length > MAX) points.shift();
+    };
+
+    const stroke = (a: { x: number; y: number }, b: { x: number; y: number }) => {
+      // soft halo
+      ctx.strokeStyle = "rgba(201,162,75,0.10)";
+      ctx.lineWidth = 7;
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.stroke();
+      // bright core
+      ctx.strokeStyle = "rgba(201,162,75,0.55)";
+      ctx.lineWidth = 1.8;
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.stroke();
     };
 
     const draw = () => {
-      // Fade the existing trace by erasing a little alpha each frame.
+      // 1) Gently erase a little alpha so the whole trace fades over time —
+      //    paint persists for a couple of seconds, so the visitor's mark lingers.
       ctx.globalCompositeOperation = "destination-out";
-      ctx.fillStyle = "rgba(0,0,0,0.10)";
+      ctx.fillStyle = `rgba(0,0,0,${FADE})`;
       ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
-      // Draw the current trace as a tapering gold stroke.
+      // 2) Commit only the NEW segments since last frame (so resting doesn't
+      //    re-burn a blob, and motion lays down lasting gold).
       ctx.globalCompositeOperation = "source-over";
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
-      for (let i = 1; i < points.length; i++) {
-        const p0 = points[i - 1];
-        const p1 = points[i];
-        const t = i / points.length;
-        ctx.strokeStyle = `rgba(201,162,75,${0.06 + t * 0.4})`;
-        ctx.lineWidth = 0.5 + t * 5;
-        ctx.beginPath();
-        ctx.moveTo(p0.x, p0.y);
-        ctx.lineTo(p1.x, p1.y);
-        ctx.stroke();
+      for (let i = Math.max(1, painted); i < points.length; i++) {
+        stroke(points[i - 1], points[i]);
       }
-      // A faint head where the pen rests.
-      if (last.x >= 0 && points.length) {
-        ctx.fillStyle = "rgba(201,162,75,0.55)";
+      painted = points.length;
+
+      // Keep the buffer bounded; what's painted already lives on the canvas.
+      if (points.length > 64) {
+        points.splice(0, points.length - 8);
+        painted = points.length;
+      }
+
+      // A soft head where the pen currently rests.
+      if (last.x >= 0) {
+        ctx.fillStyle = "rgba(201,162,75,0.5)";
         ctx.beginPath();
         ctx.arc(last.x, last.y, 2.2, 0, Math.PI * 2);
         ctx.fill();
       }
-      // Let old points drift out so a resting cursor doesn't pin a blob.
-      if (points.length) points.shift();
       raf = requestAnimationFrame(draw);
     };
 

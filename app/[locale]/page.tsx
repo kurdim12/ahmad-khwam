@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Media } from "@/components/Media";
+import { TraceBand } from "@/components/TraceBand";
 import { CursorTrace } from "@/components/effects/CursorTrace";
 import { ScrollTrace } from "@/components/effects/ScrollTrace";
 import { flags } from "@/lib/flags";
@@ -36,6 +37,7 @@ export default function Page({ params }: { params: { locale: string } }) {
         <FeaturedWork locale={locale} />
         <Media locale={locale} />
         <Academy locale={locale} />
+        <TraceBand locale={locale} />
       </main>
 
       <Footer locale={locale} />
