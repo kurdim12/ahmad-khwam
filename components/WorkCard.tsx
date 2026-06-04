@@ -25,7 +25,7 @@ export function WorkCard({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="card-glow group relative flex h-full flex-col justify-between overflow-hidden rounded-card border border-line bg-ink-raised p-7 sm:p-8"
+      className="card-glow trace-card group relative flex h-full flex-col justify-between overflow-hidden rounded-card border border-line bg-ink-raised p-7 sm:p-8"
     >
       {item.cover ? (
         <span

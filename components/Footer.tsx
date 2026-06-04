@@ -14,7 +14,7 @@ export function Footer({ locale }: { locale: Locale }) {
   ];
 
   return (
-    <footer id="contact" className="scroll-mt-24 border-t border-line py-24 sm:py-28">
+    <footer id="contact" data-trace-node="contact" className="scroll-mt-24 border-t border-line py-24 sm:py-28">
       <div className="shell flex flex-col items-center text-center">
         <div className="mb-8 flex items-center gap-3">
           <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-gold" />

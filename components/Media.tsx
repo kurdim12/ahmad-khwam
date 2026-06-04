@@ -16,7 +16,7 @@ export function Media({ locale }: { locale: Locale }) {
   const items = getMedia();
 
   return (
-    <section id="media" className="scroll-mt-24 border-y border-line bg-ink-soft py-24 sm:py-28">
+    <section id="media" data-trace-node="media" className="scroll-mt-24 border-y border-line bg-ink-soft py-24 sm:py-28">
       <div className="shell">
         <SectionHeading
           label={copy.media.label[locale]}
@@ -31,7 +31,7 @@ export function Media({ locale }: { locale: Locale }) {
                 href={item.permalink || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card-glow group flex h-full flex-col rounded-card border border-line bg-ink-raised p-6"
+                className="card-glow trace-card group relative flex h-full flex-col rounded-card border border-line bg-ink-raised p-6"
               >
                 <span className="eyebrow">{kindLabel(item.kind, locale)}</span>
                 <h3

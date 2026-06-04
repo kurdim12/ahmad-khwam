@@ -12,6 +12,7 @@ export function Academy({ locale }: { locale: Locale }) {
   return (
     <section
       id="academy"
+      data-trace-node="academy"
       className="relative scroll-mt-24 overflow-hidden py-24 sm:py-32"
     >
       <div aria-hidden className="texture-dots pointer-events-none absolute inset-0 -z-10 opacity-30" />
@@ -43,7 +44,7 @@ export function Academy({ locale }: { locale: Locale }) {
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {c.pillars.map((p, i) => (
               <MotionReveal as="li" key={p.no} delay={i * 0.07}>
-                <div className="card-glow h-full rounded-card border border-line bg-ink-raised p-6">
+                <div className="card-glow trace-card relative h-full rounded-card border border-line bg-ink-raised p-6">
                   <span className="ltr-num font-display text-sm text-gold">{p.no}</span>
                   <p dir="auto" className="mt-4 font-display text-xl font-medium leading-snug text-bone">
                     {p.title[locale]}
@@ -86,7 +87,7 @@ export function Academy({ locale }: { locale: Locale }) {
                     href={item.permalink || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="card-glow group flex h-full flex-col rounded-card border border-line bg-ink-raised p-6"
+                    className="card-glow trace-card group relative flex h-full flex-col rounded-card border border-line bg-ink-raised p-6"
                   >
                     {item.date ? (
                       <span className="ltr-num text-xs text-bone-faint">

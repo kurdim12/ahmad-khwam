@@ -8,6 +8,9 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Media } from "@/components/Media";
+import { CursorTrace } from "@/components/effects/CursorTrace";
+import { ScrollTrace } from "@/components/effects/ScrollTrace";
+import { flags } from "@/lib/flags";
 
 export default function Page({ params }: { params: { locale: string } }) {
   if (!isLocale(params.locale)) notFound();
@@ -21,6 +24,9 @@ export default function Page({ params }: { params: { locale: string } }) {
       >
         {copy.nav.skip[locale]}
       </a>
+
+      {flags.scrollTrace ? <ScrollTrace /> : null}
+      {flags.cursorTrace ? <CursorTrace /> : null}
 
       <Header locale={locale} />
 

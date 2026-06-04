@@ -3,12 +3,30 @@ import type { Locale } from "@/lib/i18n";
 import { MotionReveal } from "./MotionReveal";
 import { InstagramIcon, VerifiedIcon, YoutubeIcon } from "./icons";
 
+/** Renders his signature trailing «…» as a living gold mark, verbatim text preserved. */
+function TrailingStatement({ text }: { text: string }) {
+  const idx = text.indexOf("…");
+  if (idx === -1) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, idx)}
+      <span className="ellipsis-trace" aria-label="…">
+        <span aria-hidden>.</span>
+        <span aria-hidden>.</span>
+        <span aria-hidden>.</span>
+      </span>
+      {text.slice(idx + 1)}
+    </>
+  );
+}
+
 export function Hero({ locale }: { locale: Locale }) {
   const c = copy.hero;
 
   return (
     <section
       id="top"
+      data-trace-node="top"
       aria-label={c.sectionLabel[locale]}
       className="relative overflow-hidden"
     >
@@ -29,10 +47,29 @@ export function Hero({ locale }: { locale: Locale }) {
         </MotionReveal>
 
         <MotionReveal delay={0.12}>
-          <h1 className="flex flex-wrap items-center gap-x-4 gap-y-2 font-display text-[3.25rem] font-semibold leading-[0.95] text-bone sm:text-7xl md:text-8xl">
-            <span dir="auto">{c.name[locale]}</span>
+          <h1 className="flex flex-wrap items-end gap-x-4 gap-y-2 font-display text-[3.25rem] font-semibold leading-[0.95] text-bone sm:text-7xl md:text-8xl">
+            <span dir="auto" className="relative inline-block">
+              {c.name[locale]}
+              {/* hand-drawn gold underline — the first trace */}
+              <svg
+                aria-hidden="true"
+                className="draw-underline absolute inset-x-0 -bottom-2 h-3 w-full text-gold sm:-bottom-3"
+                viewBox="0 0 600 14"
+                fill="none"
+                preserveAspectRatio="none"
+                style={{ ["--len" as string]: "640" }}
+              >
+                <path
+                  d="M4 9C110 3 210 13 320 7S520 4 596 8"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+            </span>
             <span
-              className="inline-flex items-center text-gold"
+              className="inline-flex items-center pb-2 text-gold"
               title={c.verified[locale]}
               aria-label={c.verified[locale]}
             >
@@ -46,7 +83,7 @@ export function Hero({ locale }: { locale: Locale }) {
             dir="auto"
             className="mt-8 max-w-2xl font-display text-2xl font-light leading-snug text-bone-muted sm:text-3xl"
           >
-            {c.statement[locale]}
+            <TrailingStatement text={c.statement[locale]} />
           </p>
         </MotionReveal>
 

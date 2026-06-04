@@ -97,6 +97,106 @@ body::before {
     border-color: var(--gold-soft);
     box-shadow: var(--shadow-glow, 0 18px 50px -24px rgba(201, 162, 75, 0.35));
   }
+
+  /* ── Concept: أثر / the trace ─────────────────────────────────────── */
+
+  /* Trace brackets: two gold corner marks that "draw in" on hover,
+     like registration marks left on the card. RTL-safe (logical sides). */
+  .trace-card::before,
+  .trace-card::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border-color: var(--gold);
+    border-style: solid;
+    border-width: 0;
+    opacity: 0;
+    transition: width 0.5s var(--ease), height 0.5s var(--ease),
+      opacity 0.4s var(--ease);
+    pointer-events: none;
+  }
+  .trace-card::before {
+    inset-block-start: 12px;
+    inset-inline-start: 12px;
+  }
+  .trace-card::after {
+    inset-block-end: 12px;
+    inset-inline-end: 12px;
+  }
+  .trace-card:hover::before,
+  .trace-card:focus-visible::before {
+    width: 26px;
+    height: 26px;
+    opacity: 0.9;
+    border-block-start-width: 1.5px;
+    border-inline-start-width: 1.5px;
+  }
+  .trace-card:hover::after,
+  .trace-card:focus-visible::after {
+    width: 26px;
+    height: 26px;
+    opacity: 0.9;
+    border-block-end-width: 1.5px;
+    border-inline-end-width: 1.5px;
+  }
+
+  /* The trailing «…» as a living gold mark. */
+  .ellipsis-trace > span {
+    display: inline-block;
+    color: var(--gold);
+    animation: ellipsis-pulse 2.4s var(--ease) infinite;
+  }
+  .ellipsis-trace > span:nth-child(2) {
+    animation-delay: 0.25s;
+  }
+  .ellipsis-trace > span:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+
+  /* Hand-drawn gold underline that draws once when the hero settles. */
+  .draw-underline path {
+    stroke-dasharray: var(--len, 240);
+    stroke-dashoffset: var(--len, 240);
+    animation: draw-trace 1.4s var(--ease) 0.5s forwards;
+  }
+
+  /* Ink-settle: a heading rises out of a soft blur, like ink finding form. */
+  .ink-settle {
+    animation: ink-settle 0.9s var(--ease) both;
+  }
+}
+
+@keyframes ellipsis-pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes draw-trace {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ink-settle {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
 }
 
 /* Respect reduced-motion: kill transitions, animations, smooth scroll ---- */
@@ -114,5 +214,15 @@ body::before {
   }
   .card-glow:hover {
     transform: none;
+  }
+  /* Concept marks resolve to their finished, legible state. */
+  .ellipsis-trace > span {
+    opacity: 1 !important;
+  }
+  .draw-underline path {
+    stroke-dashoffset: 0 !important;
+  }
+  .ink-settle {
+    filter: none !important;
   }
 }
